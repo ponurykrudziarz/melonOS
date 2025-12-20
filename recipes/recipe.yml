@@ -5,16 +5,16 @@ name: MelonOS
 description: Immutable Fedora with mangoWC'n'shieet
 
 base-image: quay.io/fedora-ostree-desktops/base-atomic
-image-version: %OS_VERSION%
+image-version: 42
 
 modules:
   - from-file: common/sddm-modules.yml
   - from-file: common/common-modules.yml
   - from-file: common/nvidia-open-modules.yml
   - from-file: common/mangowc-modules.yml
-  - type: script
-    scripts:
-      - setmangowcmodules.sh
+  # - type: script
+  #   scripts:
+  #     - setmangowcmodules.sh
   - from-file: common/final-modules.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

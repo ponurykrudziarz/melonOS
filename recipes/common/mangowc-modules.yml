@@ -1,10 +1,15 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 modules:
     - type: dnf
+      repos:
+        files:
+          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       install:
         packages:
-          #- foot
+          - mangowc
 
-    - type: files
-      files:
-        #- source: system/sway
-        #  destination: /
+    # - type: files
+    #   files:
+    #     - source: system/sway
+    #       destination: /
