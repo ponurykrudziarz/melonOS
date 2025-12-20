@@ -1,0 +1,10 @@
+modules:
+    - type: dnf
+      install:
+        packages:
+          #- foot
+
+    - type: files
+      files:
+        #- source: system/sway
+        #  destination: /

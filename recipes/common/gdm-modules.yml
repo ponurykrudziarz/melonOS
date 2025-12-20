@@ -1,0 +1,16 @@
+modules:
+    - type: dnf
+      install:
+        install-weak-deps: false
+        packages:
+          - gdm
+          - gnome-keyring
+  
+    - type: script
+      scripts:
+        - removegnomedesktopentries.sh
+
+    - type: systemd
+      system:
+        enabled:
+          - gdm-boot.service
