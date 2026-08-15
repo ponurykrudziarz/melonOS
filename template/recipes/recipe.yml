@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 
-name: MelonOS
+name: melonos
 description: Immutable Fedora with mangoWC'n'shieet
 
 base-image: ghcr.io/ublue-os/kinoite-nvidia
