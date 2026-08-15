@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      files:
+        - terra.repo
+  - type: dnf
+    install:
+      packages:
+        - mangowc
+  - type: script
+    scripts:
+      - setmangowcmodules.sh

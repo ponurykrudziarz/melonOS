@@ -1,8 +1,8 @@
 modules:
     - type: containerfile
       snippets:
-        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /rpms /tmp/rpms
-        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /kernel-rpms /tmp/rpms/kernel
+        - COPY --from=ghcr.io/ublue-os/akmods:main-${OS_VERSION} /rpms /tmp/rpms
+        - COPY --from=ghcr.io/ublue-os/akmods:main-${OS_VERSION} /kernel-rpms /tmp/rpms/kernel
         - RUN find /tmp/rpms
         - RUN rpm -q ublue-os-akmods-addons || dnf install -y /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
     - type: script
@@ -18,7 +18,7 @@ modules:
     - type: dnf
       repos:
         files:
-          - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-42/ublue-os-packages-fedora-42.repo
+          - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-${OS_VERSION}/ublue-os-packages-fedora-${OS_VERSION}.repo
       install:
         packages:
           - ublue-os-udev-rules
@@ -69,6 +69,8 @@ modules:
           - steam-devices
           - micro
           - foot
+          - noctalia
+          - helix
           
         # sound
           - wireplumber
@@ -113,7 +115,6 @@ modules:
 
         # theme and GUI
           - fontawesome-fonts-all
-          - gnome-themes-extra
           - gnome-icon-theme
           - paper-icon-theme
           - breeze-icon-theme 
@@ -128,7 +129,7 @@ modules:
             - old: OpenCL-ICD-Loader
               new: ocl-icd
 
-    - from-file: common/proprietary-modules.yml
+    #- from-file: common/proprietary-modules.yml
 
     - type: script
       scripts:
@@ -149,6 +150,3 @@ modules:
     - type: script
       scripts:
         - addbrewjustimport.sh
-
-    - type: wayblue-signing
-      source: local

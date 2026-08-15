@@ -14,9 +14,11 @@
 
 set -oue pipefail
 
-LATEST_ANDROID_UDEV_RULES_COMMIT="e62577fade0e79a965edfff732b88f228266cb0b" # 20250525
-curl -OL "https://github.com/M0Rf30/android-udev-rules/archive/${LATEST_ANDROID_UDEV_RULES_COMMIT}.tar.gz"
-tar xvf "${LATEST_ANDROID_UDEV_RULES_COMMIT}.tar.gz" --strip-components=1
+echo "curl -OL \"https://github.com/M0Rf30/android-udev-rules/archive/refs/tags/${ANDROID_UDEV_RELEASE}.tar.gz\""
+curl -OL "https://github.com/M0Rf30/android-udev-rules/archive/refs/tags/${ANDROID_UDEV_RELEASE}.tar.gz"
+echo "tar xvf \"${ANDROID_UDEV_RELEASE}.tar.gz\" --strip-components=1"
+tar xvf "${ANDROID_UDEV_RELEASE}.tar.gz" --strip-components=1
+
 
 install -m 644 51-android.rules /etc/udev/rules.d/
 mkdir -p /usr/lib/sysusers.d/

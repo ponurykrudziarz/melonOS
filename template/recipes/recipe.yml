@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+name: MelonOS
+description: Immutable Fedora with mangoWC'n'shieet
+
+base-image: ghcr.io/ublue-os/kinoite-nvidia
+image-version: ${OS_VERSION}
+
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+  - from-file: subrecipes/sddm.yml
+  - from-file: subrecipes/common.yml
+  #- from-file: common/nvidia-open-modules.yml
+  - from-file: subrecipes/mangowc.yml
+  - from-file: subrecipes/final.yml
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
