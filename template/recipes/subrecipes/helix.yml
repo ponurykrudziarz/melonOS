@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+modules:
+  - type: copy
+    from: helix-builder
+    src: /out/hx
+    dest: /usr/bin/hx
+  - type: copy
+    from: helix-builder
+    src: /out/runtime
+    dest: /usr/lib/helix/runtime
+  # - type: script
+  #   scripts:
+  #     - configurehelix.sh

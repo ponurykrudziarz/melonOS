@@ -7,6 +7,17 @@ description: Immutable Fedora with mangoWC'n'shieet
 base-image: ghcr.io/ublue-os/kinoite-nvidia
 image-version: ${OS_VERSION}
 
+stages:
+  - name: helix-builder
+    from: docker.io/library/rust:latest
+    modules:
+      - type: script
+        snippets:
+        - apt-get update && apt-get install -y git gcc make binutils
+        - git clone -b steel-event-system https://github.com/mattwparas/helix.git
+        - cd helix && cargo install --profile opt --config 'build.rustflags="-C target-cpu=native"' --path helix-term --locked
+        - mkdir -p /out && cp $CARGO_HOME/bin/hx /out/hx && cp -r helix/runtime /out/runtime
+
 modules:
   - type: files
     files:
@@ -16,6 +27,7 @@ modules:
   - from-file: subrecipes/common.yml
   #- from-file: common/nvidia-open-modules.yml
   - from-file: subrecipes/mangowc.yml
+  - from-file: subrecipes/helix.yml
   - from-file: subrecipes/final.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
