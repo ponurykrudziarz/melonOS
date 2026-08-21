@@ -34,10 +34,17 @@ modules:
         - addimageinfo.sh
 
     - type: dnf
+      repos:
+        files:
+          - terra.repo
+          - https://repo.librewolf.net/librewolf.repo
+    - type: dnf
       install:
         packages:
 
         # environment
+          - mangowc
+          - librewolf
           - git
           - fzf
           - tuned-ppd
@@ -129,7 +136,7 @@ modules:
             - old: OpenCL-ICD-Loader
               new: ocl-icd
 
-    #- from-file: common/proprietary-modules.yml
+    - from-file: subrecipes/proprietary.yml
 
     - type: script
       scripts:
