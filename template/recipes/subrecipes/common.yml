@@ -70,7 +70,7 @@ modules:
           - micro
           - foot
           - noctalia
-          - helix
+          - emacs
           
         # sound
           - wireplumber
