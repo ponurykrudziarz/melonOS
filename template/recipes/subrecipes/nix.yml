@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 
 modules:
+  - type: systemd
+    system:
+      enabled:
+        - nix.mount
+
   - type: dnf
     install:
       packages:
