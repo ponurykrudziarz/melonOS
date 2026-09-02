@@ -29,6 +29,7 @@ modules:
   #- from-file: subrecipes/mangowc.yml
   - from-file: subrecipes/helix.yml
   - from-file: subrecipes/nix.yml
+  - from-file: subrecipes/proprietary.yml
   - from-file: subrecipes/final.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

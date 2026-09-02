@@ -61,7 +61,3 @@ modules:
               new: libswresample
             - old: libswscale-free
               new: libswscale
-
-    - type: script
-      scripts:
-        - removeunusedrepos.sh

@@ -30,8 +30,8 @@ modules:
     - type: script
       scripts:
         - installandroidudev.sh
-        - ensureautoupdates.sh
-        - addimageinfo.sh
+        #- ensureautoupdates.sh
+        #- addimageinfo.sh
 
     - type: dnf
       repos:
@@ -136,19 +136,9 @@ modules:
             - old: OpenCL-ICD-Loader
               new: ocl-icd
 
-    - from-file: subrecipes/proprietary.yml
-
     - type: script
       scripts:
         - installrpmfusion.sh
-        - removeunusedrepos.sh
-
-    - type: files
-      files:
-        - source: system/usr
-          destination: /usr
-        - source: system/etc
-          destination: /etc
 
     - type: gschema-overrides
       include:
