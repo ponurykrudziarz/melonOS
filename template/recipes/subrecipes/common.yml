@@ -83,6 +83,7 @@ modules:
           - ldns
           - socat
           - ipcalc
+          - git
 
           - file
           - which
