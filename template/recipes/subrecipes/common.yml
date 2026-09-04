@@ -67,6 +67,7 @@ modules:
           - micro
           - foot
           - emacs
+          - tmux
           - nnn
           - zip
           - xz
