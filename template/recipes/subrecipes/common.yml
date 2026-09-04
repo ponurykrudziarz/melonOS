@@ -10,12 +10,6 @@ modules:
         - installsignedkernel.sh
 
     - type: dnf
-      install:
-        packages:
-          - just
-          - powerstat
-
-    - type: dnf
       repos:
         files:
           - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-${OS_VERSION}/ublue-os-packages-fedora-${OS_VERSION}.repo
@@ -36,17 +30,13 @@ modules:
     - type: dnf
       repos:
         files:
-          - terra.repo
           - https://repo.librewolf.net/librewolf.repo
     - type: dnf
       install:
         packages:
 
         # environment
-          - mangowc
           - librewolf
-          - git
-          - fzf
           - tuned-ppd
           - xorg-x11-server-Xwayland
           - headsetcontrol
@@ -76,8 +66,49 @@ modules:
           - steam-devices
           - micro
           - foot
-          - noctalia
           - emacs
+          - nnn
+          - zip
+          - xz
+          - unzip
+          - p7zip
+          - ripgrep
+          - jq
+          - yq-go
+          - eza
+          - fzf
+          - mtr
+          - iperf3
+          - dnsutils
+          - ldns
+          - socat
+          - ipcalc
+
+          - file
+          - which
+          - tree
+          - sed
+          - tar
+          - awk
+          - zstd
+          - gnupg
+          - just
+
+          - btop
+          - htop
+          - iotop
+          - iftop
+
+          - strace
+          - ltrace
+          - lsof
+
+          - sysstat
+          - lm_sensors
+          - ethtool
+          - pciutils
+          - usbutils
+          - powerstat
           
         # sound
           - wireplumber
@@ -126,10 +157,6 @@ modules:
           - paper-icon-theme
           - breeze-icon-theme 
           - papirus-icon-theme
-      remove:
-        packages:
-        - firefox
-        - firefox-langpacks
       replace:
         - from-repo: fedora
           packages:

@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 
 name: melonos
-description: Immutable Fedora with mangoWC'n'shieet
+description: Immutable Fedora with stuff
 
 base-image: ghcr.io/ublue-os/kinoite-nvidia
 image-version: ${OS_VERSION}
@@ -25,8 +25,6 @@ modules:
         destination: /
   - from-file: subrecipes/sddm.yml
   - from-file: subrecipes/common.yml
-  #- from-file: common/nvidia-open-modules.yml
-  #- from-file: subrecipes/mangowc.yml
   - from-file: subrecipes/helix.yml
   - from-file: subrecipes/nix.yml
   - from-file: subrecipes/proprietary.yml
